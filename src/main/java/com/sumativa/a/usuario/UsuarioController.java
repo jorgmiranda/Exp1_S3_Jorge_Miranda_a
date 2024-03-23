@@ -1,6 +1,7 @@
 package com.sumativa.a.usuario;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -92,6 +93,13 @@ public class UsuarioController {
         }
         
         return new ArrayList();
+    }
+
+    @GetMapping("/usuarios/contar")
+    public HashMap<String, Integer> getCantidadUsuarios() {
+        HashMap<String, Integer> cantidad = new HashMap<String, Integer>();
+        cantidad.put("Cantidad Usuarios", usuarios.size());
+        return cantidad;
     }
 
 }
